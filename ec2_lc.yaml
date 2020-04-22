@@ -1,7 +1,7 @@
 ---
 -  name: Create Launch Config
     ec2_lc:
-      name: launch_asg
+      name: "{{name}}"
       image_id: "{{image_id}}"
       key_name: "{{key_name}}"
       security_groups: "{{security_groups}}"
