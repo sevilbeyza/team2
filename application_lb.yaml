@@ -1,5 +1,5 @@
 ---
-- name: Application Load Balancer
+- name: Create Application Load Balancer
   hosts: localhost
   gather_facts: no
   vars_files:
