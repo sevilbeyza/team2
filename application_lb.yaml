@@ -1,16 +1,24 @@
 ---
-- elb_application_lb:
-    name: "{{name}}
-    security_groups: "{{security_groups}}"
-    region: "{{region}}"
-    subnets:
-      - "{{subnets}}"
-      - "{{subnets}}"
-      - "{{subnets}}"
-    listeners:
-      - Protocol: HTTP # Required. The protocol for connections from clients to the load balancer (HTTP or HTTPS) (case-sensitive).
-        Port: 80
-        DefaultActions:
-          - Type: forward # Required.
-            TargetGroupName: "{{targetgroupname}}"
-    state: present
+- name: Application Load Balancer
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - vars_file.yaml
+  ignore_errors: yes
+  tasks:
+
+  - elb_application_lb:
+      name: "{{name}}
+      security_groups: "{{security_groups}}"
+      region: "{{region}}"
+      subnets:
+        - "{{pub_subnet1}}"
+        - "{{pub_subnet2}}"
+        - "{{pub_subnet3}}"
+      listeners:
+        - Protocol: "{{ HTTP }}" # Required. The protocol for connections from clients to the load balancer (HTTP or HTTPS) (case-sensitive).
+          Port: "{{ 80 }}"
+          DefaultActions:
+            - Type: "{{ forward }}" # Required.
+              TargetGroupName: "{{ mytargetgroup }}"
+      state: present
