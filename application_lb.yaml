@@ -1,0 +1,16 @@
+---
+- elb_application_lb:
+    name: "{{name}}
+    security_groups: "{{security_groups}}"
+    region: "{{region}}"
+    subnets:
+      - "{{subnets}}"
+      - "{{subnets}}"
+      - "{{subnets}}"
+    listeners:
+      - Protocol: HTTP # Required. The protocol for connections from clients to the load balancer (HTTP or HTTPS) (case-sensitive).
+        Port: 80
+        DefaultActions:
+          - Type: forward # Required.
+            TargetGroupName: mytargetgroup
+    state: present
