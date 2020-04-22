@@ -1,0 +1,12 @@
+---
+- ec2_asg:
+    name: "{{name}}"
+    launch_config_name: "{{launch_config_name}}"
+    health_check_period: "{{health_check_period}}"
+    health_check_type: ELB
+    replace_all_instances: yes
+    min_size: "{{min_size}}"
+    max_size: "{{max_size}}"
+    desired_capacity: "{{desired_capacity}}"
+    region: "{{region}}"
+    state: present
