@@ -1,0 +1,35 @@
+# Launch Configuraton
+name:                       "team2_lc"
+image_id:                   "ami-0e8444967cca91ba6"
+key_name:                   "ansible"
+security_group:             "team2_sg"
+instance_type:              "t2.micto"
+region:                     "us-west-2"
+device_name:                "/dev/xvda"
+volume_size:                "100"
+volume_type:                "io1"
+iops:                       "3000"
+
+# Target Group
+name:                       "team2_tg"
+region:                     "us-west-2"
+vpc_id:                     "vpc-04c2b3657aab9d351"
+
+# Application Load Balancer
+name:                       "team2_lb"
+security_group:             "team2_sg"
+region:                     "us-west-2"
+subnets:                    "subnet-0becf5bed062d451b", "subnet-06a5c5c4f20a32061", "subnet-0f015c916fb445959"
+TargetGroupName:            "team2_tg"
+
+# Auto Scaling Group
+name:                      "team2.yaml"
+launch_config_name:        "team2_lc"
+vpc_zone_identifier:       "subnet-0becf5bed062d451b", "subnet-06a5c5c4f20a32061", "subnet-0f015c916fb445959"
+health_check_period:       "60"
+min_size:                  "3"
+max_size:                  "48"
+desired_capacity:          "3"
+region:                    "us-west-2"
+
+
