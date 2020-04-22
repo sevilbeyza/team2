@@ -1,5 +1,13 @@
 ---
-- elb_target_group:
+- name: Create Target Group
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - vars_file.yaml
+  ignore_errors: yes
+  tasks:
+
+  - elb_target_group:
       name: "{{name}}"
       region: "{{region}}"
       protocol: http
