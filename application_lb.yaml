@@ -12,5 +12,5 @@
         Port: 80
         DefaultActions:
           - Type: forward # Required.
-            TargetGroupName: mytargetgroup
+            TargetGroupName: "{{targetgroupname}}"
     state: present
