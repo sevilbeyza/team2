@@ -23,7 +23,7 @@ subnets:                    "subnet-0becf5bed062d451b", "subnet-06a5c5c4f20a3206
 TargetGroupName:            "team2_tg"
 
 # Auto Scaling Group
-name:                      "team2.yaml"
+name:                      "team2_asg.yaml"
 launch_config_name:        "team2_lc"
 vpc_zone_identifier:       "subnet-0becf5bed062d451b", "subnet-06a5c5c4f20a32061", "subnet-0f015c916fb445959"
 health_check_period:       "60"
