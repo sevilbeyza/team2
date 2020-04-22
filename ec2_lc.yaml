@@ -1,12 +1,20 @@
 ---
--  name: Create Launch Config
+- name: Create Launch Config
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - vars_file.yaml
+  ignore_errors: true
+
+  tasks:
+  - name: Create Launch Config
     ec2_lc:
       name: "{{name}}"
       image_id: "{{image_id}}"
-      key_name: "{{key_name}}"
+      key_name: "{{key_name}}
       security_groups: "{{security_groups}}"
       instance_type: "{{instance_type}}"
-      region: "{{region}}" 
+      region: "{{region}}"
       volumes:
       - device_name: "{{device_name}}"
         volume_size: "{{volume_size}}"
