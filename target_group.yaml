@@ -1,14 +1,13 @@
 ---
 - name: Create Target Group
   hosts: localhost
-  gather_facts: no
+  gather_facts: yes
   vars_files:
-    - vars_file.yaml
-  ignore_errors: yes
+    - vars.yaml
   tasks:
 
   - elb_target_group:
-      name: "{{name}}"
+      name: team2targetgroup
       region: "{{region}}"
       protocol: http
       port: 80

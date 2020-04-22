@@ -1,25 +1,24 @@
 ---
 - name: Create Launch Config
   hosts: localhost
-  gather_facts: no
+  gather_facts: yes
   vars_files:
-    - vars_file.yaml
-  ignore_errors: true
+    - vars.yaml
 
   tasks:
   - name: Create Launch Config
     ec2_lc:
-      name: "{{name}}"
+      name: team2-lc
       image_id: "{{image_id}}"
-      key_name: "{{key_name}}
+      key_name: "{{key_name}}"
       security_groups: "{{security_groups}}"
       instance_type: "{{instance_type}}"
       region: "{{region}}"
       volumes:
-      - device_name: "{{device_name}}"
-        volume_size: "{{volume_size}}"
-        volume_type: "{{volume_type}}"
-        iops: "{{iops}}"
+      - device_name: /dev/xvda
+        volume_size: 100
+        volume_type: io1
+        iops: 3000
         delete_on_termination: true
         encrypted: no
     register: lc
