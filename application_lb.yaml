@@ -9,7 +9,7 @@
 
   - elb_application_lb:
       name: "{{name}}
-      security_groups: "{{security_groups}}"
+      security_group: "{{security_groups}}"
       region: "{{region}}"
       subnets:
         - "{{pub_subnet1}}"
