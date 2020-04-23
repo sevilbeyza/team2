@@ -3,7 +3,8 @@
   hosts: localhost
   tasks: 
   
-
+- name: Create Security Group
+  include: security_group.yaml
 
 - name: Create Launch Config
   include: ec2_lc.yaml
